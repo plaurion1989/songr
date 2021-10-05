@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="album.css">
+</head>
+<body>
+    <h1 th:text="${heading}"></h1>
+    <p th:text="${description}"></p>
+    <img th:src="${baseImage}"/>
+<br>
+    <ul th:each="album: ${albums}">
+        <li th:text="${album.title}}"></li>
+        <li th:text="${album.artist}"></li>
+        <li th:text="${album.songCount}"></li>
+        <li th:text="${album.length}"></li>
+        <li th:src="${album.imageUrl}"></li>
+
+    </ul>
+
+</body>
+</html>
