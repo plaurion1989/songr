@@ -6,12 +6,12 @@
     <link rel="stylesheet" href="album.css">
 </head>
 <body>
-    <h1 th:text="${heading}"></h1>
+    <h1 th:text="${title}"></h1>
     <p th:text="${description}"></p>
     <img th:src="${baseImage}"/>
 <br>
     <ul th:each="album: ${albums}">
-        <li th:text="${album.title}}"></li>
+        <li th:text="${album.title}"></li>
         <li th:text="${album.artist}"></li>
         <li th:text="${album.songCount}"></li>
         <li th:text="${album.length}"></li>

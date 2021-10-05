@@ -13,9 +13,9 @@ public class SongrController
     @GetMapping("/")
     public String splashPage(Model m)
     {
-        m.addAttribute("heading", "Songr Java Application");
+        m.addAttribute("title", "Songr Java Application");
         m.addAttribute("description", "My web page is designed to ROCK your Socks off!");
-        m.addAttribute("baseImage", "/images/rock-gesture.jpeg");
+        m.addAttribute("baseImage", "images/rock-gesture.jpeg");
         return "songr/album";
     }
     @GetMapping("/albums")
