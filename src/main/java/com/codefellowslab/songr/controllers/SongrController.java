@@ -5,6 +5,7 @@ import com.codefellowslab.songr.repositories.AlbumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
@@ -50,6 +51,14 @@ public class SongrController
     {
         Album newAlbum = new Album(title, artist, songCount, length, imageUrl);
         albumRepository.save(newAlbum);
+            return new RedirectView("songr/album");
+    }
+
+    @DeleteMapping("/delete")
+    public RedirectView deleteAlbum(String title)
+    {
+            Album albumToDelete = albumRepository.findByTitle(title);
+            albumRepository.delete(albumToDelete);
             return new RedirectView("songr/album");
     }
 }
