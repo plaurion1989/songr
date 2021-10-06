@@ -18,6 +18,22 @@
         <li th:src="${album.imageUrl}"></li>
 
     </ul>
+    <form action="/" method="post">
+        <fieldset>
+            <legend>Add an Album Here</legend>
+            <lable for="title">Album Title</lable>
+            <input type="text" name="title">
+            <lable for="artist">Album Artist</lable>
+            <input type="text" name="artist">
+            <lable for="songCount">Number of Songs</lable>
+            <input type="number" name="songCount">
+            <lable for="length">Entire Length in Time</lable>
+            <input type="number" name="length">
+            <lable for="imageUrl">Album Image Link</lable>
+            <input type="text" name="imageUrl">
+            <input type="submit" value="Add Album">
+        </fieldset>
+    </form>
 
 </body>
 </html>
