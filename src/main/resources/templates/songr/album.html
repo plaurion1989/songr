@@ -14,11 +14,27 @@
         <li th:text="${album.title}"></li>
         <li th:text="${album.artist}"></li>
         <li th:text="${album.songCount}"></li>
+        <ul th:each="song : ${album.songsInAlbum}">
+            <li th:text="${song.title}"></li>
+            <li th:text="${song.length}"></li>
+            <li th:text="${song.trackNumber}"></li>
+            <li th:text="${song.album}"></li>
+        </ul>
         <li th:text="${album.length}"></li>
         <li th:src="${album.imageUrl}"></li>
+        <form action="/add-song" method="post">
+            <fieldset>
+                <legend>Add song's to this Album</legend>
+                <input type="text"name="songTitle">
+                <input type="text"name="songLength">
+                <input type="text"name="songTrackNumber">
+                <input type="hidden"name="albumTitle"value="${album.title}">
+                <input type="submit"value="Add a Song">
+            </fieldset>
+        </form>
 
     </ul>
-    <form action="/" method="post">
+    <form action="/album" method="post">
         <fieldset>
             <legend>Add an Album Here</legend>
             <lable for="title">Album Title</lable>
@@ -34,7 +50,7 @@
             <input type="submit" value="Add Album">
         </fieldset>
     </form>
-    <form action="/" th:method="delete">
+    <form action="/album" th:method="delete">
         <lable for="title">Delete by Album Title</lable>
         <input type="text" name="title">
         <input type="submit" value="Delete Album">
